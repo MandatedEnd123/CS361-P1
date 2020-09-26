@@ -8,6 +8,7 @@ public class DFA implements DFAInterface {
     Set<State> qNotArray = new HashSet<State>();
     Set<State> qArray = new HashSet<State>();
     Set<State> fArray = new HashSet<State>();
+    Set<Character> sigma = new HashSet<Character>();
 
     @Override
     public boolean accepts(String s) {
@@ -25,6 +26,7 @@ public class DFA implements DFAInterface {
         sState.setName(name);
         sState.setStartState(true);
         qNotArray.add(sState);
+        qArray.add(sState);
     }
 
     @Override
@@ -40,6 +42,7 @@ public class DFA implements DFAInterface {
         fState.setName(name);
         fState.setFinalState(true);
         fArray.add(fState);
+        qArray.add(fState);
     }
 
     @Override
@@ -49,17 +52,17 @@ public class DFA implements DFAInterface {
 
     @Override
     public Set<? extends State> getStates() {
-        return null;
+        return qArray;
     }
 
     @Override
     public Set<? extends State> getFinalStates() {
-        return null;
+        return fArray;
     }
 
     @Override
     public State getStartState() {
-        return qNotArray.get(0);
+        return qNotArray.iterator().next();
     }
 
     @Override
