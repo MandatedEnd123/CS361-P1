@@ -1,13 +1,13 @@
 package fa.dfa;
-import java.util.ArrayList;
+import java.util.HashSet;
 import fa.State;
 
 import java.util.Set;
 
 public class DFA implements DFAInterface {
-    ArrayList<State> qNotArray = new ArrayList<State>();
-    ArrayList<State> qArray = new ArrayList<State>();
-    ArrayList<State> fArray = new ArrayList<State>();
+    Set<State> qNotArray = new HashSet<State>();
+    Set<State> qArray = new HashSet<State>();
+    Set<State> fArray = new HashSet<State>();
 
     @Override
     public boolean accepts(String s) {
@@ -59,7 +59,7 @@ public class DFA implements DFAInterface {
 
     @Override
     public State getStartState() {
-        return null;
+        return qNotArray.get(0);
     }
 
     @Override
@@ -71,5 +71,4 @@ public class DFA implements DFAInterface {
     public DFA complement() {
         return null;
     }
-    //TEST TEST TEST TEST
 }
