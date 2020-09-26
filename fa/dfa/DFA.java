@@ -1,13 +1,13 @@
 package fa.dfa;
-
+import java.util.ArrayList;
 import fa.State;
 
 import java.util.Set;
 
 public class DFA implements DFAInterface {
-
-
-
+    ArrayList<State> qNotArray = new ArrayList<State>();
+    ArrayList<State> qArray = new ArrayList<State>();
+    ArrayList<State> fArray = new ArrayList<State>();
 
     @Override
     public boolean accepts(String s) {
@@ -21,17 +21,25 @@ public class DFA implements DFAInterface {
 
     @Override
     public void addStartState(String name) {
-
+        DFAState sState = new DFAState();
+        sState.setName(name);
+        sState.setStartState(true);
+        qNotArray.add(sState);
     }
 
     @Override
     public void addState(String name) {
-
+        DFAState qState = new DFAState();
+        qState.setName(name);
+        qArray.add(qState);
     }
 
     @Override
     public void addFinalState(String name) {
-
+        DFAState fState = new DFAState();
+        fState.setName(name);
+        fState.setFinalState(true);
+        fArray.add(fState);
     }
 
     @Override
