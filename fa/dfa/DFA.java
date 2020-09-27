@@ -5,10 +5,10 @@ import fa.State;
 import java.util.Set;
 
 public class DFA implements DFAInterface {
-    Set<State> qNotArray = new HashSet<State>();
-    Set<State> qArray = new HashSet<State>();
-    Set<State> fArray = new HashSet<State>();
-    Set<Character> sigma = new HashSet<Character>();
+    private Set<State> qNotArray = new HashSet<State>();
+    private Set<State> qArray = new HashSet<State>();
+    private Set<State> fArray = new HashSet<State>();
+    private Set<Character> sigma = new HashSet<Character>();
 
     @Override
     public boolean accepts(String s) {
@@ -67,11 +67,35 @@ public class DFA implements DFAInterface {
 
     @Override
     public Set<Character> getABC() {
-        return null;
+        return sigma;
     }
 
     @Override
     public DFA complement() {
+        DFA compDFA = new DFA();
+
+        while (this.qArray.iterator().hasNext()){
+            compDFA.addState(qArray.iterator().next().getName());
+        }
+
+        compDFA.addStartState(qNotArray.iterator().next().getName());
+
+        while (compDFA.getStates().iterator().hasNext()){
+            String compName = compDFA.getStates().iterator().next().getName();
+
+            while (this.fArray.iterator().hasNext()){
+                State finalState = this.fArray.iterator().next();
+                
+                if (compName != finalState.getName()){
+                    compDFA.addFinalState(compName);
+                }
+            }
+        }
+
+        return compDFA;
+    }
+
+    public String toString(){
         return null;
     }
 }
