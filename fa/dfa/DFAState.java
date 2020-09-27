@@ -6,7 +6,7 @@ public class DFAState extends State {
 
     boolean isFinalState = false;
     boolean isStartState = false;
-
+    String sName = "";
 
     public void setName(String label){
         name = label;
