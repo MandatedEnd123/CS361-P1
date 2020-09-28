@@ -5,6 +5,25 @@ import fa.State;
 import java.util.Map;
 import java.util.Set;
 
+
+/**
+ * This Class is the DFA that contains all of the DFAStates.
+ *
+ * The Class contains all of the Sets for the States that the DFA contains
+ * as well as a compliment to said Set.
+ * The Class also contains a Character Set for the Alphabet and a Map that contains a Pair for the Key,
+ * which consists of the symbol it is using to transition and the state from which is shdifts from.
+ * The value returned from this pair is the toState in which it will shift to.
+ *
+ * This class also contains an acceptor which verifies if the character checked is in the alphabet or not.
+ *
+ * The class lastly contains the basic functions such as addState, addFinal, addStart, addTransition and lastly
+ * getToState which utilizes the map function mentioned above.
+ *
+ *
+ * @author Chazz Chandler and Joey Kitzhaber
+ */
+
 public class DFA implements DFAInterface {
     Set<State> qNotArray = new HashSet<State>();
     Set<State> qArray = new HashSet<State>();
