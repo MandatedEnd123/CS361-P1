@@ -100,7 +100,7 @@ public class DFA implements DFAInterface {
 
         Pair p = new Pair(onSymb, fromState);
 
-        tMap.putIfAbsent(p, toState);
+        tMap.put(p, toState);
 
     }
 
