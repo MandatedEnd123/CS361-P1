@@ -32,12 +32,10 @@ public class DFA implements DFAInterface {
 
         DFAState newState = new DFAState();
 
-
-
         Pair pair = new Pair(from,onSymb);
         String s = from.getName();
 
-        Pair p = new Pair(tMap.)
+        Pair p = new Pair(tMap.get())
 
         if(tMap.getOrDefault(from, "nope") == s){
 
