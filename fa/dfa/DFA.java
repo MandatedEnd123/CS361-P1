@@ -32,14 +32,14 @@ public class DFA implements DFAInterface {
 
         DFAState newState = new DFAState();
 
-        Pair pair = new Pair(from,onSymb);
-        String s = from.getName();
+        Pair pair = new Pair(onSymb, from);
+        String s = "";
 
-        Pair p = new Pair(tMap.get())
-
-        if(tMap.getOrDefault(from, "nope") == s){
-
+        if(tMap.containsKey(pair)){
+            s = tMap.getOrDefault(pair, s);
         }
+
+        newState.setName(s);
 
         return newState;
     }
@@ -129,5 +129,5 @@ public class DFA implements DFAInterface {
 
         return compDFA;
     }
-    }
+
 }
