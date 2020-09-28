@@ -1,6 +1,7 @@
 package fa.dfa;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import fa.State;
 import java.util.Map;
 import java.util.Set;
@@ -127,26 +128,26 @@ public class DFA implements DFAInterface {
     @Override
     public DFA complement() {
         DFA compDFA = new DFA();
-
-        while (this.qArray.iterator().hasNext()){
-            compDFA.addState(qArray.iterator().next().getName());
-        }
-
+    
         compDFA.addStartState(qNotArray.iterator().next().getName());
 
-        while (compDFA.getStates().iterator().hasNext()){
-            String compName = compDFA.getStates().iterator().next().getName();
+        Iterator<? extends State> sIter = qArray.iterator();
+        while (sIter.hasNext()){
+            String compName = sIter.next().getName();
+            System.out.println(compName);
 
-            while (this.fArray.iterator().hasNext()){
-                State finalState = this.fArray.iterator().next();
+            Iterator<? extends State> fIter = fArray.iterator();
+            while (fIter.hasNext()){
+                State finalState = fIter.next();
 
                 if (compName != finalState.getName()){
                     compDFA.addFinalState(compName);
+                } else {
+                    compDFA.addState(compName);
                 }
             }
         }
 
         return compDFA;
     }
-
 }
