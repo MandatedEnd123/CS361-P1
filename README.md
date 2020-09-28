@@ -33,10 +33,10 @@ End function is to print out the states of the DFA after transitions.
 **Building and Running**
 from the directory containing the files, compile and test.
 
-compile using $javac DFADriver.java
+compile using $javac fa/dfa/DFADriver.java
 
 Test with the following command:
-$java DFADriver <testfile.txt>
+$java fa/dfa/DFADriver /tests/testfile.txt
 
 Console will display the output of the file.
 
